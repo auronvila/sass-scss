@@ -1,6 +1,16 @@
-@import "typography.css";
+.char-highlight {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #521751;
+}
+
 html {
   font-size: 94.75%;
+}
+@media (min-width: 40rem) {
+  html {
+    font-size: 125%;
+  }
 }
 
 body {
@@ -14,34 +24,39 @@ body {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
   padding: 3rem 0;
   box-sizing: border-box;
 }
-
-.sass-introduction {
-  border: 0.05rem solid #521751;
-  background: #f7e1f6;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0.2rem 0.2rem 0.1rem #ccc;
-  width: 90%;
-  box-sizing: border-box;
+@media (min-width: 40rem) {
+  .container {
+    padding: 3rem 0;
+  }
 }
 
-.sass-introduction p {
-  margin: 0;
-}
-
+.sass-introduction,
 .sass-details {
   border: 0.05rem solid #521751;
   background: #f7e1f6;
-  padding: 1rem;
   text-align: center;
-  margin: 2rem 0;
   width: 90%;
   box-sizing: border-box;
+}
+@media (min-width: 40rem) {
+  .sass-introduction,
+  .sass-details {
+    width: 30rem;
+  }
+}
+
+.sass-introduction {
+  padding: 2rem;
+  box-shadow: 0.2rem 0.2rem 0.1rem #ccc;
+}
+
+.sass-details {
+  padding: 1rem;
+  margin: 2rem 0;
 }
 
 .section-header {
@@ -73,24 +88,13 @@ body {
   padding: 0.2rem;
   border: 0.05rem solid #521751;
 }
-.documentation-links .documentation-link:hover,
-.documentation-links .documentation-link:active {
+.documentation-links .documentation-link:hover, .documentation-links .documentation-link:active {
   color: white;
   background: #fa923f;
   border-color: #fa923f;
 }
-.documentation-links .documentation-links {
-  text-decoration: none;
-  color: #521751;
-  display: block;
-  padding: 0.2rem;
-  border: 0.05rem solid #521751;
-}
 
 @media (min-width: 40rem) {
-  html {
-    font-size: 125%;
-  }
   .container {
     padding: 3rem 0;
   }
@@ -100,4 +104,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=main.cs.map */
+/*# sourceMappingURL=main.css.map */

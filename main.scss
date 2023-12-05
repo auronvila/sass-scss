@@ -1,12 +1,25 @@
-// $main-color: #521751;
-$colors: (main:#521751, secondary:#fa923f);
-$border-default: 0.05rem solid map-get($colors, main);
+@import "typography";
+@import "_variables";
 
+@mixin display_flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
 
-@import "typography.css";
+@mixin media-min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
 
 html {
   font-size: 94.75%;
+
+  @include media-min-width(40rem) {
+    font-size: 125%;
+  }
 }
 
 body {
@@ -15,41 +28,38 @@ body {
 }
 
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex: {
-    direction: column;
-    wrap: nowrap;
-  };
+  @include display_flex();
+  flex-direction: column;
   align-items: center;
   padding: 3rem 0;
   box-sizing: border-box;
+
+  @include media-min-width(40rem) {
+    padding: 3rem 0;
+  }
 }
 
-.sass-introduction {
-  border: $border-default;
-  background: lighten(map-get($colors, main), 72%);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0.2rem 0.2rem 0.1rem #ccc;
-  width: 90%;
-  box-sizing: border-box;
-}
-
-.sass-introduction p {
-  margin: 0;
-}
-
+.sass-introduction,
 .sass-details {
   border: $border-default;
   background: lighten(map-get($colors, main), 72%);
-  padding: 1rem;
   text-align: center;
-  margin: 2rem 0;
   width: 90%;
   box-sizing: border-box;
+
+  @include media-min-width(40rem) {
+    width: 30rem;
+  }
+}
+
+.sass-introduction {
+  padding: 2rem;
+  box-shadow: 0.2rem 0.2rem 0.1rem #ccc;
+}
+
+.sass-details {
+  padding: 1rem;
+  margin: 2rem 0;
 }
 
 .section-header {
@@ -64,10 +74,7 @@ body {
   list-style: none;
   margin: 1rem 0 0 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+  @include display_flex();
   flex-direction: column;
 
   li {
@@ -81,30 +88,17 @@ body {
     display: block;
     padding: 0.2rem;
     border: $border-default;
-  }
 
-  .documentation-link:hover,
-  .documentation-link:active {
-    color: white;
-    background: map-get($colors, secondary);
-    border-color: map-get($colors, secondary);
-  }
-
-  .documentation-links {
-    text-decoration: none;
-    color: map-get($colors, main);
-    display: block;
-    padding: 0.2rem;
-    border: $border-default;
+    &:hover,
+    &:active {
+      color: white;
+      background: map-get($colors, secondary);
+      border-color: map-get($colors, secondary);
+    }
   }
 }
 
-
 @media (min-width: 40rem) {
-  html {
-    font-size: 125%;
-  }
-
   .container {
     padding: 3rem 0;
   }
